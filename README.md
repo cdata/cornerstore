@@ -52,3 +52,7 @@ Resets the storage entity, removing all keys and values. Returns a reference to 
 ### Store.length ###
 
 Returns the length of the current storage entity.
+
+### Custom Storage ###
+
+Corner Store checks for a global property 'customStorage' that implements the Web Storage specification, and uses it if available. This is useful if you wish to implement some specialty storage mechanism (e.g., storage in Internet Explorer < 8). That's it :)
