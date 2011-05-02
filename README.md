@@ -43,7 +43,7 @@ Takes a string key and removes the key from the storage entity if it exists. Ret
 
 ### Store.key ###
 
-Takes an integar index value and returns the key in the storage entity at that index.
+Takes an integer index value and returns the key in the storage entity at that index.
 
 ### Store.clear ###
 
