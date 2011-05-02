@@ -40,7 +40,6 @@
         typeBasic = 16,
         selectStorage = function(typeSet) {
 
-            console.log('Typeset: ' + typeSet);
             if(typeSet & typeCustom && customStorage)
                 return customStorage;
 
