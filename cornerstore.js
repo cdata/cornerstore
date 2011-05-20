@@ -34,8 +34,8 @@
             return new BasicStorage();
         })(),
         typeCustom = 1,
-        typeGlobal = 2,
-        typeLocal = 4,
+        typeLocal = 2,
+        typeGlobal = 4,
         typeSession = 8,
         typeBasic = 16,
         selectStorage = function(typeSet) {
@@ -43,11 +43,11 @@
             if(typeSet & typeCustom && customStorage)
                 return customStorage;
 
-            if(typeSet & typeGlobal && globalStorage)
-                return globalStorage;
-
             if(typeSet & typeLocal && localStorage)
                 return localStorage;
+
+            if(typeSet & typeGlobal && globalStorage)
+                return globalStorage;
 
             if(typeSet & typeSession && sessionStorage)
                 return sessionStorage;
@@ -65,7 +65,23 @@
                 getItem: function(key) { return this.storage.getItem(key); },
                 setItem: function(key, value) { var self = this; self.storage.setItem(key, value); return self; },
                 removeItem: function(key) { var self = this; self.storage.removeItem(key); return self; },
-                clear: function() { var self = this; self.storage.clear(); return self; },
+                clear: function() { 
+                    var self = this,
+                        storage = self.storage; 
+
+                    if('clear' in storage && typeof storage.clear == 'function') {
+
+                        storage.clear(); 
+                    } else {
+
+                        for(var key in storage) {
+
+                            self.removeItem(key);
+                        }
+                    }
+
+                    return self; 
+                },
                 length: function() { return this.storage.length; }
             };
 
