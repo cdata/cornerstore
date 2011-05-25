@@ -1,9 +1,9 @@
 (function(window, document, undefined) {
 
-    var localStorage = window.localStorage,
-        globalStorage = window.globalStorage ? window.globalStorage[window.location.host] : undefined,
-        sessionStorage = window.sessionStorage,
-        customStorage = window.customStorage,
+    var localStorage = window['localStorage'],
+        globalStorage = window['globalStorage'] ? window['globalStorage'][window['location']['host']] : undefined,
+        sessionStorage = window['sessionStorage'],
+        customStorage = window['customStorage'],
         basicStorage = (function() {
 
             var BasicStorage = function() { this.storage = {}; };
