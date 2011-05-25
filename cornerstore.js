@@ -91,11 +91,11 @@
             };
         })();
 
-    store.custom = typeCustom;
-    store.global = typeGlobal;
-    store.local = typeLocal;
-    store.session = typeSession;
-    store.basic = typeBasic;
+    store['custom'] = typeCustom;
+    store['global'] = typeGlobal;
+    store['local'] = typeLocal;
+    store['session'] = typeSession;
+    store['basic'] = typeBasic;
     
-    window.store = store;
+    window['store'] = store;
 })(window, document);
